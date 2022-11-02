@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <li>
+    <li v-for="todo in todos" :key="todo.id">
       <Todo />
     </li>
   </ul>
@@ -8,12 +8,25 @@
 
 <script>
 import Todo from "./Todo.vue";
+import { computed } from "vue";
+import { todoStore } from "../stores/todoStore";
 
 export default {
   setup() {
+    const store = todoStore();
+
+    const todos = computed(() => {
+      return store.getTodos;
+    });
+
     return {
       Todo,
+      todos,
     };
+  },
+
+  components: {
+    Todo,
   },
 };
 </script>
