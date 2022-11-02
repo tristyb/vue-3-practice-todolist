@@ -32,6 +32,9 @@ export const todoStore = defineStore("todoStore", {
       });
     },
 
-    changeTodoStatus(todo) { },
+    changeTodoStatus(todoId) {
+      const todo = this.todos.find((todo) => todo.id === todoId);
+      todo.complete = !todo.complete;
+    },
   },
 });
