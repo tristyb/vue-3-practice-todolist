@@ -1,9 +1,10 @@
 import { defineStore } from "pinia";
 import { v4 as uuidv4 } from "uuid";
+import { useStorage } from "@vueuse/core";
 
 export const todoStore = defineStore("todoStore", {
   state: () => ({
-    todos: [
+    todos: useStorage("todos", [
       {
         id: 1,
         complete: false,
@@ -14,7 +15,7 @@ export const todoStore = defineStore("todoStore", {
         complete: true,
         text: "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
       },
-    ],
+    ]),
   }),
 
   getters: {
