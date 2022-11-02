@@ -7,13 +7,20 @@
 
 <script>
 import { ref } from "vue";
+import { todoStore } from "../stores/todoStore";
 
 export default {
   setup() {
     const todoText = ref("");
+    const store = todoStore();
+
+    function addTodo() {
+      store.addTodo(todoText.value);
+    }
 
     return {
       todoText,
+      addTodo,
     };
   },
 };

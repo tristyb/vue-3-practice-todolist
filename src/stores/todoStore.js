@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import { v4 as uuidv4 } from "uuid";
 
 export const todoStore = defineStore("todoStore", {
   state: () => ({
@@ -23,7 +24,13 @@ export const todoStore = defineStore("todoStore", {
   },
 
   actions: {
-    addTodo(todo) { },
+    addTodo(todoText) {
+      this.todos.push({
+        id: uuidv4(),
+        complete: false,
+        text: todoText,
+      });
+    },
 
     changeTodoStatus(todo) { },
   },
