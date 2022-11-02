@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Todo from "./Todo.vue";
+import Todo from "./TodoItem.vue";
 import { computed } from "vue";
 import { todoStore } from "../stores/todoStore";
 
