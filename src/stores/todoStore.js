@@ -19,7 +19,9 @@ export const todoStore = defineStore("todoStore", {
 
   getters: {
     getTodos() {
-      return this.todos;
+      return this.todos.sort((a, b) => {
+        return a.complete === b.complete ? 0 : a.complete ? 1 : -1;
+      });
     },
   },
 
